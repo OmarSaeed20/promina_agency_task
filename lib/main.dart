@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:promina_agency_task/home_page.dart';
+import 'package:promina_agency_task/login_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -56,12 +57,13 @@ class MyApp extends StatelessWidget {
               builders: {
                 TargetPlatform.android: CupertinoPageTransitionsBuilder(),
                 TargetPlatform.iOS: ZoomPageTransitionsBuilder(),
-                TargetPlatform.fuchsia: ZoomPageTransitionsBuilder(),
               },
             ),
           ),
+          // home: const LoginView(),
+          home: const LoginPage2(),
           // home: const LoginPage(),
-          home: const HomePage(),
+          // home: const HomePage(),
         ),
       ),
     );

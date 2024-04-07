@@ -71,9 +71,7 @@ class HomePage extends StatelessWidget {
         return Scaffold(
           backgroundColor: Colors.transparent,
           body: Padding(
-            padding: EdgeInsetsDirectional.symmetric(
-              horizontal: 45.w,
-            ),
+            padding: EdgeInsetsDirectional.symmetric(horizontal: 45.w),
             child: Center(
               child: Container(
                 height: ScreenUtil().screenHeight / 4,
@@ -90,10 +88,14 @@ class HomePage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     _CardPickedFileWidget(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.of(context).pop();
+                      },
                     ),
                     _CardPickedFileWidget(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.of(context).pop();
+                      },
                       title: "Camera",
                       image: AppImages.camera,
                       bgColor: const Color(0xFFEBF6FF),
@@ -213,11 +215,7 @@ class _CardButtonWidget extends StatelessWidget {
                 ],
               ),
               child: Center(
-                child: SvgPicture.asset(
-                  image,
-                  height: 10.h,
-                  width: 10.w,
-                ),
+                child: SvgPicture.asset(image, height: 10.h, width: 10.w),
               ),
             ),
             15.width,
