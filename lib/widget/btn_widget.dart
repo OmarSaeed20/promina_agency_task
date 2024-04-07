@@ -16,7 +16,6 @@ class BtnWidget extends StatelessWidget {
     this.textStyle,
     this.child,
     this.height = 45,
-    // this.width = 335,
     this.radius = 10,
     this.isBorder = false,
     this.isBuy = false,

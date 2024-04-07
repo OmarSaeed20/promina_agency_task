@@ -6,6 +6,7 @@ import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:promina_agency_task/utils/extensions.dart';
+
 class CodePickerWidget extends StatefulWidget {
   final ValueChanged<CountryCode>? onChanged;
   final ValueChanged<CountryCode?>? onInit;
@@ -174,7 +175,7 @@ class CodePickerWidgetState extends State<CodePickerWidget> {
                   color: Theme.of(context).primaryColor.withOpacity(.6),
                 ),
               ),
-              5.sW,
+              5.width,
               if (widget.showFlagMain != null
                   ? widget.showFlagMain!
                   : widget.showFlag)
@@ -187,7 +188,8 @@ class CodePickerWidgetState extends State<CodePickerWidget> {
                         : Clip.hardEdge,
                     decoration: widget.flagDecoration,
                     margin: widget.alignLeft
-                        ? const EdgeInsetsDirectional.only(start: 16.0, end: 8.0)
+                        ? const EdgeInsetsDirectional.only(
+                            start: 16.0, end: 8.0)
                         : const EdgeInsetsDirectional.only(start: 16.0),
                     child: Image.asset(
                       selectedItem!.flagUri!,

@@ -113,7 +113,7 @@ class _TextInputWidgetState extends State<TextInputWidget> {
               ],
             ),
           ),
-          8.sH,
+          8.height,
         ],
         TextFormField(
           maxLines: widget.maxLines,

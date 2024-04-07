@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import 'login_page.dart';
+import 'package:promina_agency_task/home_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -31,6 +30,7 @@ class MyApp extends StatelessWidget {
           title: "Gellary App",
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
+            fontFamily: "BalooThambi2",
             useMaterial3: true,
             primaryColor: const Color(0xFF3a3fe9),
             brightness: Brightness.light,
@@ -61,7 +61,7 @@ class MyApp extends StatelessWidget {
             ),
           ),
           // home: const LoginPage(),
-          home: const MyHomePage(),
+          home: const HomePage(),
         ),
       ),
     );
