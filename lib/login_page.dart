@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
 import 'package:promina_agency_task/widget/btn_widget.dart';
 import 'package:promina_agency_task/widget/text_input_widget.dart';
 import 'dart:async';
@@ -179,6 +180,40 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<LoginView> {
+  Widget _textFormField(String hintText, bool isPassword) {
+    Size size = MediaQuery.of(context).size;
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(40),
+      child: Container(
+        height: size.width / 8,
+        width: size.width / 1.2,
+        alignment: Alignment.center,
+        padding: EdgeInsets.only(right: size.width / 30),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(15),
+        ),
+        child: TextField(
+          obscureText: isPassword,
+          keyboardType:
+              isPassword ? TextInputType.visiblePassword : TextInputType.name,
+          decoration: InputDecoration(
+            contentPadding: const EdgeInsets.all(10),
+            fillColor: Colors.white,
+            border: InputBorder.none,
+            hintMaxLines: 1,
+            hintText: hintText,
+            hintStyle: const TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.w500,
+              color: Colors.black38,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -190,28 +225,22 @@ class _LoginViewState extends State<LoginView> {
             height: size.height,
             child: Stack(
               children: [
-                SizedBox(
+                Container(
                   height: size.height,
-                  child: Image.network(
+                  width: size.width,
+                  decoration:
+                      BoxDecoration(gradient: RadialGradient(colors: [])),
+                  /* child: Image.network(
                     'https://unsplash.com/photos/bOBM8CB4ZC4',
                     // #Image Url: https://unsplash.com/photos/bOBM8CB4ZC4
                     fit: BoxFit.fill,
                   ),
+                 */
                 ),
-                /* SizedBox(
-                  height: size.height,
-                  child: Image.asset(
-                    'assets/images/background_image.jpg',
-                    // #Image Url: https://unsplash.com/photos/bOBM8CB4ZC4
-                    fit: BoxFit.fitHeight,
-                  ),
-                ), */
                 Center(
                   child: Column(
                     children: [
-                      const Expanded(
-                        child: SizedBox(),
-                      ),
+                      const Expanded(child: SizedBox()),
                       Expanded(
                         flex: 7,
                         child: ClipRRect(
@@ -243,17 +272,14 @@ class _LoginViewState extends State<LoginView> {
                                       ),
                                     ),
                                   ),
-                                  const TextInputWidget(hintText: "User name"),
-                                  const TextInputWidget(hintText: "Password"),
+                                  _textFormField('User name', false),
+                                  _textFormField('Password', true),
                                   SizedBox(height: size.width * .3),
                                   InkWell(
                                     splashColor: Colors.transparent,
                                     highlightColor: Colors.transparent,
                                     onTap: () {
                                       HapticFeedback.lightImpact();
-                                      // Fluttertoast.showToast(
-                                      //   msg: 'Sign-In button pressed',
-                                      // );
                                     },
                                     child: Container(
                                       margin: EdgeInsets.only(
@@ -287,53 +313,12 @@ class _LoginViewState extends State<LoginView> {
                           ),
                         ),
                       ),
-                      const Expanded(
-                        child: SizedBox(),
-                      ),
+                      const Expanded(child: SizedBox()),
                     ],
                   ),
                 ),
               ],
             ),
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget component(
-    IconData icon,
-    String hintText,
-    bool isPassword,
-    bool isEmail,
-  ) {
-    Size size = MediaQuery.of(context).size;
-    return Container(
-      height: size.width / 8,
-      width: size.width / 1.25,
-      alignment: Alignment.center,
-      padding: EdgeInsets.only(right: size.width / 30),
-      decoration: BoxDecoration(
-        color: Colors.black.withOpacity(.1),
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: TextField(
-        style: TextStyle(
-          color: Colors.white.withOpacity(.9),
-        ),
-        obscureText: isPassword,
-        keyboardType: isEmail ? TextInputType.emailAddress : TextInputType.text,
-        decoration: InputDecoration(
-          prefixIcon: Icon(
-            icon,
-            color: Colors.white.withOpacity(.8),
-          ),
-          border: InputBorder.none,
-          hintMaxLines: 1,
-          hintText: hintText,
-          hintStyle: TextStyle(
-            fontSize: 14,
-            color: Colors.white.withOpacity(.5),
           ),
         ),
       ),
@@ -449,37 +434,27 @@ class _LoginPage2State extends State<LoginPage2> with TickerProviderStateMixin {
                 Positioned(
                   top: size.height * (animation2.value + .58),
                   left: size.width * .21,
-                  child: CustomPaint(
-                    painter: MyPainter(50),
-                  ),
+                  child: CustomPaint(painter: MyPainter(50)),
                 ),
                 Positioned(
                   top: size.height * .98,
                   left: size.width * .1,
-                  child: CustomPaint(
-                    painter: MyPainter(animation4.value - 30),
-                  ),
+                  child: CustomPaint(painter: MyPainter(animation4.value - 30)),
                 ),
                 Positioned(
                   top: size.height * .5,
                   left: size.width * (animation2.value + .8),
-                  child: CustomPaint(
-                    painter: MyPainter(30),
-                  ),
+                  child: CustomPaint(painter: MyPainter(30)),
                 ),
                 Positioned(
                   top: size.height * animation3.value,
                   left: size.width * (animation1.value + .1),
-                  child: CustomPaint(
-                    painter: MyPainter(60),
-                  ),
+                  child: CustomPaint(painter: MyPainter(60)),
                 ),
                 Positioned(
                   top: size.height * .1,
                   left: size.width * .8,
-                  child: CustomPaint(
-                    painter: MyPainter(animation4.value),
-                  ),
+                  child: CustomPaint(painter: MyPainter(animation4.value)),
                 ),
                 Column(
                   children: [
@@ -504,12 +479,8 @@ class _LoginPage2State extends State<LoginPage2> with TickerProviderStateMixin {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          component1(Icons.account_circle_outlined,
-                              'User name...', false, false),
-                          component1(
-                              Icons.email_outlined, 'Email...', false, true),
-                          component1(
-                              Icons.lock_outline, 'Password...', true, false),
+                          component1('User name', false, false),
+                          component1('Email', false, true),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -565,11 +536,10 @@ class _LoginPage2State extends State<LoginPage2> with TickerProviderStateMixin {
     );
   }
 
-  Widget component1(
-      IconData icon, String hintText, bool isPassword, bool isEmail) {
+  Widget component1(String hintText, bool isPassword, bool isEmail) {
     Size size = MediaQuery.of(context).size;
     return ClipRRect(
-      borderRadius: BorderRadius.circular(15),
+      borderRadius: BorderRadius.circular(40),
       child: Container(
         height: size.width / 8,
         width: size.width / 1.2,
@@ -580,23 +550,19 @@ class _LoginPage2State extends State<LoginPage2> with TickerProviderStateMixin {
           borderRadius: BorderRadius.circular(15),
         ),
         child: TextField(
-          // style: TextStyle(color: Colors.white.withOpacity(.8)),
-          // cursorColor: Colors.white,
           obscureText: isPassword,
           keyboardType:
               isEmail ? TextInputType.emailAddress : TextInputType.text,
           decoration: InputDecoration(
+            contentPadding: const EdgeInsets.all(10),
             fillColor: Colors.white,
-            /* prefixIcon: Icon(
-              icon,
-              color: Colors.white.withOpacity(.7),
-            ), */
             border: InputBorder.none,
             hintMaxLines: 1,
             hintText: hintText,
-            hintStyle: TextStyle(
+            hintStyle: const TextStyle(
               fontSize: 14,
-              color: Colors.white.withOpacity(.5),
+              fontWeight: FontWeight.w500,
+              color: Colors.black38,
             ),
           ),
         ),
