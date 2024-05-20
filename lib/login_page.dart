@@ -430,7 +430,8 @@ class _LoginPage2State extends State<LoginPage2> with TickerProviderStateMixin {
           child: SizedBox(
             height: size.height,
             child: Stack(
-              children: [
+              children: [ 
+                
                 Positioned(
                   top: size.height * (animation2.value + .58),
                   left: size.width * .21,
@@ -456,6 +457,7 @@ class _LoginPage2State extends State<LoginPage2> with TickerProviderStateMixin {
                   left: size.width * .8,
                   child: CustomPaint(painter: MyPainter(animation4.value)),
                 ),
+                
                 Column(
                   children: [
                     Expanded(
@@ -477,7 +479,7 @@ class _LoginPage2State extends State<LoginPage2> with TickerProviderStateMixin {
                     Expanded(
                       flex: 7,
                       child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           component1('User name', false, false),
                           component1('Email', false, true),
@@ -500,7 +502,8 @@ class _LoginPage2State extends State<LoginPage2> with TickerProviderStateMixin {
                                 () {
                                   HapticFeedback.lightImpact();
                                   Fluttertoast.showToast(
-                                      msg: 'Forgotten password button pressed');
+                                    msg: 'Forgotten password button pressed',
+                                  );
                                 },
                               ),
                             ],
